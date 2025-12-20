@@ -46,7 +46,7 @@
             <div class="version-selector">
                 <?php 
                 $max_versiones = 3; 
-                $max_colores = 3; // Cuántos slots de color creaste en ACF
+                $max_colores = 3; 
                 $primero_activo = false;
 
                 for ($i = 1; $i <= $max_versiones; $i++) {
@@ -110,7 +110,6 @@
 
         <section class="ford-calculator-box">
             <div class="calc-header">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Ford_Motor_Company_Logo.svg/1200px-Ford_Motor_Company_Logo.svg.png" width="50" alt="Ford Credit">
                 <h4>Simulá tu financiación</h4>
             </div>
             

@@ -22,6 +22,12 @@ Text Domain: astra-hijo
     --border-radius: 8px;       /* Bordes redondeados pero sólidos */
 }
 /* --- ESTILOS DEL ARCHIVE --- */
+
+/* Liberar la página de Autos del contenedor de Astra */
+.post-type-archive-autos .ast-container {
+    display: block;
+}
+
 .ford-archive-container {
     max-width: 1400px;
     margin: 40px auto;
@@ -265,10 +271,10 @@ Text Domain: astra-hijo
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
     color: #f3f3f3;
-    background-color: var(--ford-blue);
+    background-color: var(--text-gray);
     padding: 10px;
     border-radius: 10px;
 }
