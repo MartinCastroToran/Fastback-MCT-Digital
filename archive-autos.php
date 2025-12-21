@@ -97,7 +97,6 @@
                     <?php while ($query_filtrada->have_posts()) : $query_filtrada->the_post(); 
                         // Lógica de Imagen Inteligente
                         $img_card = get_field('v1_c1_foto');
-                        if(empty($img_card)) $img_card = get_field('v1_foto');
                         if(empty($img_card)) $img_card = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
                         
                         // Lógica de Precio Inteligente

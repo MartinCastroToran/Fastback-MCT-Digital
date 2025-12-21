@@ -189,7 +189,7 @@ Text Domain: astra-hijo
     .ford-archive-container { grid-template-columns: 1fr; }
     .ford-sidebar { display: none; /* O puedes ponerla arriba como acordeón */ }
 }
-/*------ESTILOS SINGLE.PHPH------*/
+/*------ESTILOS SINGLE.PHP------*/
 
 /* Layout Principal: Grid 2 Columnas */
 .ford-container-single {
@@ -216,7 +216,7 @@ Text Domain: astra-hijo
 @media (min-width: 992px) {
     .ford-col-sticky {
         position: sticky;
-        top: 100px; /* Margen superior al hacer scroll */
+        top: -40px; /* Margen superior al hacer scroll */
         height: fit-content;
     }
 }
@@ -245,7 +245,7 @@ Text Domain: astra-hijo
     height: 100%;
     /* CLAVE: 'contain' muestra todo el auto sin recortar. 
        Si prefieres que llene todo el cuadro aunque recorte los bordes, usa 'cover' */
-    object-fit: cover; 
+    object-fit: contain; 
     transition: opacity 0.3s ease; /* Para el efecto suave al cambiar color */
 }
 
