@@ -1,0 +1,21 @@
+marca,modelo,version,precio_base,activo
+Toyota,Hilux,DX 2.4 4x2 MT,32000,1
+Toyota,Hilux,SRX 2.8 4x4 AT,62000,1
+Toyota,Corolla,XLI 2.0 CVT,25000,1
+Toyota,Corolla,SEG 2.0 CVT,33000,1
+Toyota,Yaris,XS 1.5 MT,18000,1
+Ford,Ranger,XL 2.0 Diesel 4x2,34000,1
+Ford,Ranger,Limited+ V6 4WD,68000,1
+Ford,Maverick,XLT 2.0 AT,38000,1
+Volkswagen,Amarok,Trendline 2.0 TDI 4x2,35000,1
+Volkswagen,Amarok,V6 Extreme 3.0 4x4,69000,1
+Volkswagen,Polo,Track 1.6 MT,19000,1
+Volkswagen,Taos,Comfortline 250 TSI,36000,1
+Fiat,Cronos,Drive 1.3 MT,17500,1
+Fiat,Cronos,Precision 1.3 CVT,21000,1
+Peugeot,208,Active 1.6 MT,20000,1
+Peugeot,208,Feline 1.6 Tiptronic,26000,1
+Chevrolet,Cruze,LT 1.4T AT,27000,0
+Chevrolet,Tracker,MT,23000,1
+Renault,Kangoo,Zen 1.6,22000,1
+Renault,Sandero,Life 1.6,18500,1
