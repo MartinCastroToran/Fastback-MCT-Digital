@@ -197,13 +197,13 @@ Text Domain: astra-hijo
     grid-template-columns: 1fr;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 20px 60px 20px;
     gap: 40px;
 }
 
 @media (min-width: 992px) {
     .ford-container-single {
-        grid-template-columns: 55% 40%; /* Izquierda más ancha para fotos */
+        grid-template-columns: 1.1fr 0.9fr; /* Izquierda más ancha para fotos */
         align-items: start;
     }
 }
@@ -223,7 +223,6 @@ Text Domain: astra-hijo
 
 .main-image-container img {
     width: 100%;
-    height: auto;
     display: block;
     transition: opacity 0.3s ease;
 }
@@ -426,4 +425,30 @@ input[type=range] {
 
 .btn-ford-primary:hover {
     background: var(--ford-blue-hover);
+}
+
+.single-autos .ast-container {
+    display: flex !important;
+    flex-direction: column !important; /* Esto manda los relacionados abajo */
+    max-width: 100% !important;        /* Usar todo el ancho disponible */
+}
+.related-autos{
+    margin: 0 auto;
+}
+.related-autos .ford-autos-grid{
+    display: grid; grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+.related-autos h2{
+    font-size: 24px; color: #333; 
+    margin-bottom: 30px; 
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .related-autos .ford-autos-grid {
+        display: flex;
+        flex-direction: column;
+    }
 }

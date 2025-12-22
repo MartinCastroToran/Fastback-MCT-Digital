@@ -146,27 +146,54 @@
         </section>
 
     </div>
-
+</div>
 <section class="related-autos">
     <div class="ford-container">
-        <h2>Modelos relacionados</h2>
-        <div class="related-grid">
+        <h2>
+            También te puede interesar
+        </h2>
+        
+        <div class="ford-autos-grid">
             <?php
-            // Query simple para mostrar otros autos
-            $related = new WP_Query(array('post_type' => 'autos', 'posts_per_page' => 3, 'post__not_in' => array(get_the_ID())));
-            if($related->have_posts()): while($related->have_posts()): $related->the_post(); ?>
-                <div class="related-card">
+            $related = new WP_Query(array(
+                'post_type' => 'autos',
+                'posts_per_page' => 3,
+                'post__not_in' => array(get_the_ID()), // Excluir auto actual
+                'orderby' => 'rand' // Aleatorio
+            ));
+
+            if($related->have_posts()): while($related->have_posts()): $related->the_post(); 
+                
+                // --- LÓGICA DE IMAGEN (Misma que Archive) ---
+                $img_card = get_field('v1_c1_foto');
+                if(empty($img_card)) $img_card = get_field('v1_foto');
+                if(empty($img_card)) $img_card = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
+                
+                // --- LÓGICA DE PRECIO (Misma que Archive) ---
+                $precio_card = get_field('precio');
+                if(empty($precio_card)) $precio_card = get_field('v1_precio');
+            ?>
+                
+                <article class="ford-card">
                     <a href="<?php the_permalink(); ?>">
-                        <?php the_post_thumbnail('medium'); ?>
-                        <h4><?php the_title(); ?></h4>
-                        <span>Ver más ></span>
+                        <div class="card-img-wrapper">
+                            <img src="<?php echo esc_url($img_card); ?>" alt="<?php the_title(); ?>">
+                        </div>
+                        <div class="card-body">
+                            <h3><?php the_title(); ?></h3>
+                            <div class="card-footer">
+                                <span class="lbl">Precio desde</span>
+                                <span class="val">$<?php echo number_format($precio_card, 0, ',', '.'); ?></span>
+                            </div>
+                            <span class="btn-ver-mas">Ver detalles</span>
+                        </div>
                     </a>
-                </div>
+                </article>
+
             <?php endwhile; endif; wp_reset_postdata(); ?>
         </div>
     </div>
 </section>
-</div>
 <script>
     var mctInitialColors = <?php echo isset($first_load_colors) ? $first_load_colors : '[]'; ?>;
 </script>
