@@ -427,14 +427,6 @@ input[type=range] {
     background: var(--ford-blue-hover);
 }
 
-.single-autos .ast-container {
-    display: flex !important;
-    flex-direction: column !important; /* Esto manda los relacionados abajo */
-    max-width: 100% !important;        /* Usar todo el ancho disponible */
-}
-.related-autos{
-    margin: 0 auto;
-}
 .related-autos .ford-autos-grid{
     display: grid; grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
@@ -452,3 +444,51 @@ input[type=range] {
         flex-direction: column;
     }
 }
+
+/*-----Seteos para el astra-----*/
+
+.single-autos .ast-container {
+    display: flex !important;
+    flex-direction: column !important; /* Esto manda los relacionados abajo */
+    max-width: 100% !important;        /* Usar todo el ancho disponible */
+}
+.ast-single-post .entry-content a, .ast-comment-content a:not(.ast-comment-edit-reply-wrap a) {
+    text-decoration: none;
+}
+.related-autos{
+    margin: 0 auto;
+}
+
+.wp-block-uagb-container{
+    padding: 0 !important;
+    
+}
+.wp-block-uagb-container.uagb-block-81d3462a{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/*-----Home-----*/
+
+.autos-destacados-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.autos-destacados-container .ford-card{
+    width: 450px;
+    flex-wrap: wrap;
+    border-color: #c1c1c1 !important;
+}
+@media (max-width: 768px) {
+    .autos-destacados-container {
+        flex-direction: column;
+        outline: none;
+        width: 75% !important;
+    }
+    .autos-destacados-container .ford-card{
+        width: 100% !important;
+    }
+}
+

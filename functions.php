@@ -280,4 +280,61 @@
 	}
 	add_shortcode('cotizador_autos', 'mct_cotizador_autos');
 
+	function renderizar_autos_home() {
+		// 1. Iniciamos el "buffer" para que el HTML no se imprima desordenado
+		ob_start();
+
+		// 2. Definimos la consulta personalizada (ej: traer los últimos 3 autos)
+		$args = array(
+			'post_type'      => 'autos', // Asegúrate que este sea el "slug" de tu post type
+			'posts_per_page' => 3,       // Cuántos quieres mostrar en el home
+			'post_status'    => 'publish',
+		);
+
+		$query = new WP_Query($args);
+
+		if ($query->have_posts()) :
+			// AQUÍ EMPIEZA EL CONTENEDOR DE TU CARRUSEL (HTML externo)
+			echo '<div class="autos-destacados-container">'; 
+			
+			while ($query->have_posts()) : $query->the_post();
+					// Misma lógica de imagen/precio
+					$img_card = get_field('v1_c1_foto');
+					if(empty($img_card)) $img_card = get_field('v1_foto');
+					if(empty($img_card)) $img_card = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
+					
+					$precio_card = get_field('precio');
+					if(empty($precio_card)) $precio_card = get_field('v1_precio');
+				?>
+					
+					<article class="ford-card">
+						<a href="<?php the_permalink(); ?>">
+							<div class="card-img-wrapper">
+								<img src="<?php echo esc_url($img_card); ?>" alt="<?php the_title(); ?>">
+							</div>
+							<div class="card-body">
+								<h3><?php the_title(); ?></h3>
+								<div class="card-footer">
+									<span class="lbl">Precio desde</span>
+									<span class="val">$<?php echo number_format($precio_card, 0, ',', '.'); ?></span>
+								</div>
+								<span class="btn-ver-mas">Ver detalles</span>
+							</div>
+						</a>
+					</article>
+
+				<?php endwhile; wp_reset_postdata();
+
+			
+			echo '</div>'; // Cierre del contenedor
+		else :
+			echo 'No hay autos para mostrar';
+		endif;
+
+		// 4. Devolvemos todo el HTML guardado en el buffer
+		return ob_get_clean();
+	}
+
+	// 5. Registramos el shortcode: [mis_autos_destacados]
+	add_shortcode('mis_autos_destacados', 'renderizar_autos_home');
 ?>
